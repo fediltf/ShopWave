@@ -1,0 +1,101 @@
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Header-->
+<header>
+    <div
+            class="p-5 text-center bg-image"
+            style="background-image: url('{% static 'images/header_re.jpg' %}'); height: 400px; position: relative;">
+        <div class="mask"
+             style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3 display-4 fw-bolder">Welcome to ShopWave!</h1>
+                    <p class="lead fw-normal mb-0">Where Shopping Meets Style and Convenience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+<!--Header-->
+
+<!--Section-->
+<section class="py-5">
+    <div class="container-fluid">
+        <form action="{% url 'search-product' %}?searched={{searched}}" class="d-flex" method="post" role="search">
+            {% csrf_token %}
+            <input aria-label="Search" class="form-control me-2" name="searched" placeholder="Search for product"
+                   type="search">
+            <button class="btn btn-outline-success" href="" type="submit">Search</button>
+        </form>
+    </div>
+    <br>
+<!--Products Block for search-->
+    {% block products %}
+
+    <!--Dropdown Sort-->
+    <div class="dropdown float-end">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Sort By</a>
+        {% if category == None %}
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="?sort=l2h">Price - Lowest to Highest</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="?sort=h2l">Price - Highest to Lowest</a>
+            </li>
+
+        </ul>
+        {%else%}
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="?category={{category}}&sort=l2h">Price - Lowest to Highest</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="?category={{category}}&sort=h2l">Price - Highest to Lowest</a>
+            </li>
+
+        </ul>
+        {%endif%}
+    </div>
+    <!--Dropdown Sort-->
+
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for p in products %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img alt="..." class="card-img-top thumbnail" src="{{p.imgURL}}"/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{p.name}}</h5>
+                            <!-- Product price-->
+                            {{p.price|floatformat:2}} DT
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <!--                            <a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>-->
+                            <button class="btn btn-outline-dark mt-auto  add-btn update-cart" data-action="add"
+                                    data-product="{{p.id}}">Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock products %}
+<!--Products Block-->
+
+</section>
+
+{% endblock content %}

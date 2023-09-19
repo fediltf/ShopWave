@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Page</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" rel="stylesheet">
+</head>
+<body>
+<br>
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Error..
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+</div>
+{% endif %}
+<br>
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <h1>Register</h1>
+    <form action="{% url 'members:register_user' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-dark" type="submit">Register</button>
+        <a class="link-offset-1 text-dark-emphasis"
+           href="{% url 'members:login_user' %}">Cancel</a>
+    </form>
+</div>
+<script crossorigin="anonymous"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
