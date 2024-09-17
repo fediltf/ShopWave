@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+<h1 class="mb-3 display-4 fw-bolder">Add Products:</h1>
+<!--{% if submitted %}-->
+<!--<div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--    Your form was submitted successfully!!-->
+<!--    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>-->
+<!--</div>-->
+<!--{% else %}-->
+{% if user.is_staff %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    <!-- Product Name input -->
+    {% csrf_token %}
+    {{form.as_p}}
+    <!-- Submit button -->
+    <button class="btn btn-secondary btn-block mb-4" type="submit">Add Product</button>
+</form>
+{% else %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Acess Denied!! only admin can access this..
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+</div>
+{% endif %}
+{% endif %}
+{% endblock content %}

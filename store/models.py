@@ -24,8 +24,6 @@ class Product(models.Model):
     digital = models.BooleanField(default=False, null=True)
     image = models.ImageField(null=True, blank=True)
     category= models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
-    def __str__(self):
-        return self.name
 
     @property
     def imgURL(self):
@@ -34,6 +32,8 @@ class Product(models.Model):
         except:
             url = ''
         return url
+    def __str__(self):
+        return self.name
 
 
 class Order(models.Model):

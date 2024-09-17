@@ -32,7 +32,7 @@
         </form>
     </div>
     <br>
-<!--Products Block for search-->
+    <!--Products Block for search-->
     {% block products %}
 
     <!--Dropdown Sort-->
@@ -85,6 +85,14 @@
                             <button class="btn btn-outline-dark mt-auto  add-btn update-cart" data-action="add"
                                     data-product="{{p.id}}">Add to cart
                             </button>
+                            {% if user.is_staff %}
+                             -
+                            <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                               href="{% url 'update-product' p.id %}">Update</a>
+                             -
+                            <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                               href="{% url 'delete-product' p.id %}">Delete</a>
+                            {%endif%}
                         </div>
                     </div>
                 </div>
@@ -94,7 +102,7 @@
     </div>
 
     {% endblock products %}
-<!--Products Block-->
+    <!--Products Block-->
 
 </section>
 

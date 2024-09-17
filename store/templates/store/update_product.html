@@ -1,0 +1,20 @@
+{% extends 'store/index.html' %}
+{% load static %}
+{% block content %}
+<h1 class="mb-3 display-4 fw-bolder">Update Product:</h1>
+{% if user.is_staff %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    <!-- Product Name input -->
+    {% csrf_token %}
+    {{form.as_p}}
+    <!-- Submit button -->
+    <button class="btn btn-secondary btn-block mb-4" type="submit">Update Product</button>
+</form>
+{% else %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Acess Denied!! only admin can access this..
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+</div>
+{% endif %}
+{% endblock content %}
