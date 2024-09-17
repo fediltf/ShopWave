@@ -59,3 +59,4 @@ Ensure you have the following installed on your local development environment:
 ## Contact
 If you have any questions, feel free to contact me at [mohamedfedi.letaief@eniso.u-sousse.tn].
 [![Outlook](https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:mohamedfedi.letaief@eniso.u-sousse.tn)
+[![Outlook](https://img.shields.io/badge/Outlook-outlook?logo=minutemailer&logoColor=blue&color=grey)](mailto:mohamedfedi.letaief@eniso.u-sousse.tn)
