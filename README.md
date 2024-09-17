@@ -57,5 +57,6 @@ Ensure you have the following installed on your local development environment:
 7. Access the application at http://127.0.0.1:8000/ and log in to the admin panel at http://127.0.0.1:8000/admin/.
 
 ## Contact
-If you have any questions, feel free to contact me at [![Outlook](https://img.shields.io/badge/Email-outlook?style=social&logo=minutemailer&logoColor=blue&color=grey
+If you have any questions, feel free to contact me at [![Outlook]([https://img.shields.io/badge/Email-outlook?style=social&logo=minutemailer&logoColor=blue&color=grey](https://img.shields.io/badge/-outlook?style=social&logo=minutemailer&logoColor=blue&label=mohamedfedi.letaief%40eniso.u-sousse.tn&color=grey
+)
 )](mailto:mohamedfedi.letaief@eniso.u-sousse.tn)
