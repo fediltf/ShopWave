@@ -7,6 +7,7 @@ Shopwave is a robust web application built using the Python Django framework. It
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Contact](#contact)
 
 ## Features
 
@@ -55,5 +56,5 @@ Ensure you have the following installed on your local development environment:
    python manage.py runserver
 7. Access the application at http://127.0.0.1:8000/ and log in to the admin panel at http://127.0.0.1:8000/admin/.
 
-### Contact
+## Contact
 If you have any questions, feel free to contact me at [mohamedfedi.letaief@eniso.u-sousse.tn].
